@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;
+
+
+
+*{
+    font-family: "Outfit", serif;
+}
+
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.rich-text { font-size: 15px; color: #7A7B7D;}
+
+.rich-text p { margin-bottom: 16px ;}
+
+.rich-text h1 { font-size: 36px; font-weight: 800; color: #252525; margin: 12px;}
+
+.rich-text h2 { font-size: 19px; font-weight: 700; color: #252525; margin: 15px; }
+
+.rich-text h3 { font-size: 18px; font-weight: 600; color: #333333; margin: 20px; }
+
+.rich-text h4 { font-size: 16px; font-weight: 500; color: #444444; margin: 12px; }
+
+.rich-text h5 { font-size: 14px; font-weight: 400; color: #555555; margin: 12px; }
+
+.rich-text h6 { font-size: 12px; font-weight: 400; color: #666666; margin: 12px; }
+
+
+.rich-text strong { font-weight: 700;}
+.rich-text ul { margin-left: 30px; list-style-type: disc;}
+
+.rich-text li { margin-left: 8px; }
+
+.rich-text ol { margin-left: 30px; list-style-type: decimal;}
+
+/* Add these styles to your CSS */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .job-grid {
+    min-height: 600px; /* Adjust based on your content height */
+    position: relative;
+  }
+
+  .transition-opacity {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .min-h-\[600px\] {
+    min-height: 600px;
+  }
