@@ -6,7 +6,7 @@ const JobCard = ({ job }) => {
   const naviagate = useNavigate();
 
   return (
-    <div className="border p-6 shadow rounded bg-[#F2F2F2] border-[#E0D4D4]">
+    <div className="border p-6 shadow rounded bg-[#f7f5f5] border-[#E0D4D4]">
       <div className="flex justify-between items-center">
         <img className="h-10 rounded" src={job.companyId.image} alt="" />
       </div>

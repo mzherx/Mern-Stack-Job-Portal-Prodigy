@@ -1,22 +1,25 @@
-// Get user Data
-
 import e from "express";
 import User from "../models/User.js";
 import JobApplication from "../models/JobApplication.js";
 import Job from "../models/Job.js";
 import { v2 } from "cloudinary";
 
+// Get user Data
 export const getUserData = async (req, res) => {
   const userId = req.auth.userId;
+
+  console.log("User ID from request:", userId); // Log the user ID
 
   try {
     const user = await User.findById(userId);
 
     if (!user) {
+      console.log("User not found in database"); // Log if user is not found
       return res.json({ success: false, message: "User not found" });
     }
     res.json({ success: true, user });
   } catch (error) {
+    console.log("Error fetching user:", error.message); // Log any errors
     res.json({ success: false, message: error.message });
   }
 };
@@ -79,7 +82,6 @@ export const getUserJobApplications = async (req, res) => {
 };
 
 // Update User Profile (resume)
-
 export const updateUserResume = async (req, res) => {
   try {
     const userId = req.auth.userId;
