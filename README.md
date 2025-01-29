@@ -122,7 +122,7 @@ Contributions are welcome! Please follow these steps:
 
 * Push to the branch (git push origin feature/AmazingFeature)
 
-* Open a Pull Request
+* Open a Pull Request.
 
 
 📄 License
