@@ -39,6 +39,7 @@ A modern job portal application built with the MERN stack (MongoDB, Express, Rea
 - Axios
 - Chart.js (for dashboards)
 
+
 **Backend:**
 - Express.js
 - Mongoose (MongoDB ODM)
