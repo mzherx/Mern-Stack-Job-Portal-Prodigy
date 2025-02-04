@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import Calltoaction from '../components/Calltoaction'
 
 const Home = () => {
+  
   return (
     <div>
       <Navbar />

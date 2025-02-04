@@ -77,3 +77,21 @@
   .min-h-\[600px\] {
     min-height: 600px;
   }
+
+  @keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    
+}
+body{
+  animation: appear linear;
+  animation-duration: 1s;
+  animation-range: entry 0% cover 40%;
+}
