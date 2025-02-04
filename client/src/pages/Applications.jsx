@@ -113,7 +113,7 @@ const Applications = () => {
             {userApplications?.length > 0 ? (
               userApplications.map((job, index) => (
                 <tr key={job.id || index}>
-                  <td className="py-3 px-4 flex items-center gap-2 border-b">
+                  <td className="py-7 px-4 flex items-center gap-2 border-b">
                     <img
                       className="w-8 h-8 rounded mr-2"
                       src={job.companyId?.image || assets.default_company_icon}
