@@ -9,7 +9,7 @@ const ViewApplications = () => {
   const { backendUrl, companyToken } = useContext(AppContext);
   const [applicants, setApplicants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showMenu, setShowMenu] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // State for active dropdown
   const menuRef = useRef(null);
 
   const fetchCompanyJobApplications = async () => {
@@ -52,7 +52,7 @@ const ViewApplications = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowMenu(false);
+        setActiveDropdown(null); // Close dropdown when clicking outside
       }
     };
 
@@ -74,11 +74,10 @@ const ViewApplications = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="overflow-x-auto w-full rounded-xl shadow-lg">
-        <table className="w-full bg-white border-collapse">
-          {/* Table header remains the same */}
-          <thead className="bg-[#F2F2F2] text-primary">
-            <tr>
+      <div className="overflow-x-auto w-full rounded-xl shadow-lg ">
+        <table className="w-full bg-white border-collapse border-gray-300 rounded-xl">
+          <thead className="bg-[#f2f2f2] text-primary">
+            <tr className='border-gray-300 rounded-xl'>
               <th className="py-7 px-3 sm:px-4 text-left w-[5%] text-base font-semibold">#</th>
               <th className="py-7 px-3 sm:px-4 text-left w-[25%] text-base font-semibold">User name</th>
               <th className="py-7 px-3 sm:px-4 text-left max-sm:hidden w-[20%] text-base font-semibold">Job Title</th>
@@ -100,7 +99,6 @@ const ViewApplications = () => {
                 .filter((item) => item.jobId && item.userId)
                 .map((applicant, index) => (
                   <tr key={index} className="hover:bg-gray-50 transition-colors">
-                    {/* Table cells remain the same */}
                     <td className="py-5 px-3 sm:px-4 border-b text-center text-base">{index + 1}</td>
                     <td className="py-5 px-3 sm:px-4 border-b flex items-center">
                       <img
@@ -132,22 +130,22 @@ const ViewApplications = () => {
                           <button 
                             onClick={(e) => {
                               e.stopPropagation();
-                              setShowMenu(!showMenu);
+                              setActiveDropdown(activeDropdown === index ? null : index); // Toggle dropdown for specific applicant
                             }}
                             className="text-gray-600 hover:text-gray-800 px-2 py-1 rounded text-2xl"
                           >
                             ⋯
                           </button>
-                          {showMenu && (
+                          {activeDropdown === index && (
                             <div 
-                              className="absolute right-[-10px] z-10 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-xl"
+                              className="absolute right-[0px] bottom-1 z-10  w-30 bg-white border border-gray-200 rounded-lg shadow-xl"
                               ref={menuRef}
                             >
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   changeJobApplicationStatus(applicant._id, "Accepted");
-                                  setShowMenu(false);
+                                  setActiveDropdown(null);
                                 }}
                                 className="w-full px-4 py-3 text-left text-base text-green-600 hover:bg-gray-100 border-b"
                               >
@@ -157,7 +155,7 @@ const ViewApplications = () => {
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   changeJobApplicationStatus(applicant._id, "Rejected");
-                                  setShowMenu(false);
+                                  setActiveDropdown(null);
                                 }}
                                 className="w-full px-4 py-3 text-left text-base text-red-600 hover:bg-gray-100"
                               >
