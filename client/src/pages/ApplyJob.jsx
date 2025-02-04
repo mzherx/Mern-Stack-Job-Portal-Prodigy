@@ -163,8 +163,10 @@ const ApplyJob = () => {
               <button
                 onClick={applyHandler}
                 disabled={isAlreadyApplied}
-                className={`bg-primary p-4 text-[12px] sm:text-[15px] px-[25px] sm:px-[35px] text-white rounded-xl mt-10 font-primary font-semibold hover:bg-slate-600 transition duration-300 ease-in-out ${
-                  isAlreadyApplied && "bg-gray-400 cursor-not-allowed"
+                className={`p-5 text-[12px] sm:text-[15px] font-primary font-semibold px-[30px] sm:px-[35px] rounded-xl ${
+                  isAlreadyApplied
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-primary text-white  hover:bg-slate-600 transition duration-300 ease-in-out"
                 }`}
               >
                 {isAlreadyApplied ? "Already Applied" : "Apply Now"}
