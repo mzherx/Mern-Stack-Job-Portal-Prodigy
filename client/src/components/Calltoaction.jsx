@@ -1,5 +1,6 @@
 import React from "react";
 import calltoaction from "../assets/calltoaction.jpg";
+import { motion } from "framer-motion";
 
 const Calltoaction = () => {
   return (
@@ -13,6 +14,16 @@ const Calltoaction = () => {
           <div className="absolute inset-0 bg-primary opacity-90 rounded-3xl"></div>
 
           {/* Content */}
+          <motion.div
+                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.5 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.3,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+                viewport={{ once: true }} // Prevents re-triggering when scrolling back
+          >
           <div className="relative flex w-full mx-auto text-left">
             <div className="relative inline-flex items-center mx-auto align-middle">
               <div className="text-center">
@@ -42,6 +53,7 @@ const Calltoaction = () => {
               </div>
             </div>
           </div>
+          </motion.div>
         </div>
       </section>
     </div>

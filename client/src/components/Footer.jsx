@@ -1,11 +1,23 @@
 import React from "react";
 import logo from "../assets/newlogo.svg";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
+    
     <section className="pt-16 pb-7 bg-gray-900 mt-[10rem]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Signup Section */}
+        <motion.div
+              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              viewport={{ once: true }} // Prevents re-triggering when scrolling back
+            >
         <div className="grid grid-cols-12 pb-12 border-b-2 border-gray-700 max-lg:gap-7">
           <div className="col-span-12 lg:col-span-7">
             <h2 className="font-primary font-bold text-4xl leading-tight text-white mb-2 max-lg:text-center">
@@ -212,6 +224,7 @@ const Footer = () => {
             © 2025 Prodigy. All rights reserved.
           </p>
         </div>
+        </motion.div>
       </div>
     </section>
   );
