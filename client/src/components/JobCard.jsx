@@ -1,11 +1,22 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const JobCard = ({ job }) => {
   const naviagate = useNavigate();
 
   return (
+    <motion.div
+      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.5 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      viewport={{ once: true }} // Prevents re-triggering when scrolling back
+    >
     <div className="border p-6 shadow rounded bg-[#f7f5f5] border-[#E0D4D4]">
       <div className="flex justify-between items-center">
         <img className="h-10 rounded" src={job.companyId.image} alt="" />
@@ -44,6 +55,7 @@ const JobCard = ({ job }) => {
         </button>
       </div>
     </div>
+    </motion.div>
   );
 };
 
