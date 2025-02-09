@@ -4,6 +4,7 @@ import { JobCategories, JobLocations } from "../assets/assets";
 import axios from "axios";
 import { AppContext } from "../context/AppContext";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const AddJob = () => {
   const [title, setTitle] = useState("");
@@ -50,6 +51,16 @@ const AddJob = () => {
   }, []);
 
   return (
+    <motion.div
+          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          viewport={{ once: true }} // Prevents re-triggering when scrolling back
+    >
     <form
       onSubmit={onSubmitHandler}
       className="container p-6 bg-white rounded-lg shadow-md"
@@ -156,6 +167,7 @@ const AddJob = () => {
         </button>
       </div>
     </form>
+    </motion.div>
   );
 };
 

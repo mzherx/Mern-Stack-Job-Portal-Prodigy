@@ -4,6 +4,7 @@ import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const RecruiterLogin = () => {
   const navigate = useNavigate();
@@ -77,6 +78,7 @@ const RecruiterLogin = () => {
   }, []);
 
   return (
+    
     <div className="absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
       <form
         onSubmit={onSubmitHandler}
@@ -199,6 +201,7 @@ const RecruiterLogin = () => {
         />
       </form>
     </div>
+    
   );
 };
 
