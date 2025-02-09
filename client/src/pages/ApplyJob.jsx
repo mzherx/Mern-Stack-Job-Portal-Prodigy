@@ -12,6 +12,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "@clerk/clerk-react";
 import Calltoaction from "../components/Calltoaction";
+import { motion } from "framer-motion";
+
 
 const ApplyJob = () => {
   const { id } = useParams();
@@ -101,6 +103,16 @@ const ApplyJob = () => {
     <Loading /> ) :(
     <>
       <Navbar />
+      <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+            }}
+            viewport={{ once: true }} // Prevents re-triggering when scrolling back
+          >
       <div className="min-h-screen flex flex-col py-10 container px-4 2xl:px-20 mx-auto">
         <div className="bg-white text-black rounded-lg w-full">
           <div className="flex justify-center md:justify-between flex-wrap gap-8 px-14 py-[100px] mb-6 bg-[#add5ffd0]  border border-[#147BEA] rounded-xl">
@@ -191,6 +203,7 @@ const ApplyJob = () => {
       </div>
       <Calltoaction />
       <Footer />
+      </motion.div>
     </>
   ) 
   ;

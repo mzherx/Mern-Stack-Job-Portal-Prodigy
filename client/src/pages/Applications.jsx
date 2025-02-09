@@ -7,6 +7,8 @@ import { AppContext } from "../context/AppContext";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+
 
 const Applications = () => {
   const { user } = useUser();
@@ -51,7 +53,16 @@ const Applications = () => {
   };
 
   return (
-    <>
+    <motion.div
+          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          viewport={{ once: true }} // Prevents re-triggering when scrolling back
+        >
       <Navbar />
       <div className="container px-4 min-h-[65vh] 2xl:px-20 mx-auto my-10">
         <h2 className="text-xl font-semibold">Your Resume</h2>
@@ -154,7 +165,7 @@ const Applications = () => {
         </table>
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 
