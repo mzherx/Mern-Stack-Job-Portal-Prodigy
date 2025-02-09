@@ -4,6 +4,7 @@ import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const ViewApplications = () => {
   const { backendUrl, companyToken } = useContext(AppContext);
@@ -73,6 +74,16 @@ const ViewApplications = () => {
   }
 
   return (
+    <motion.div
+          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          viewport={{ once: true }} // Prevents re-triggering when scrolling back
+        >
     <div className="container mx-auto p-4">
       <div className="overflow-x-auto w-full rounded-xl shadow-lg ">
         <table className="w-full bg-white border-collapse border-gray-300 rounded-xl">
@@ -181,6 +192,7 @@ const ViewApplications = () => {
         </table>
       </div>
     </div>
+    </motion.div>
   );
 };
 

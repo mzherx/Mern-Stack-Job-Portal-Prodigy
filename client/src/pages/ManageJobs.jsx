@@ -6,6 +6,7 @@ import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
+import { motion } from "framer-motion";
 
 const ManageJobs = () => {
   const navigate = useNavigate();
@@ -60,9 +61,20 @@ const ManageJobs = () => {
   }, [companyToken]);
 
   return  jobs ? jobs.length === 0 ? (
+    
   <div className='flex items-center justify-center h-[70vh]'>
     <p className='text-xl sm:text-2xl '>No Jobs Available or posted</p>
   </div>) : (
+    <motion.div
+    whileInView={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, scale: 0.5 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.2,
+      ease: [0, 0.71, 0.2, 1.01],
+    }}
+    viewport={{ once: true }} // Prevents re-triggering when scrolling back
+  >
     <div className="container p-4 mx-auto ">
       <div className="overflow-x-auto w-full rounded-xl">
       <table className="w-full bg-[#F2F2F2] border border-gray-300 rounded-xl max-sm:text-sm text-primary">
@@ -119,6 +131,7 @@ const ManageJobs = () => {
         <button></button>
       </div>
     </div>
+    </motion.div>
   ): <Loading />
 };
 
