@@ -7,12 +7,13 @@ import { motion } from "framer-motion";
 const AppDownload = () => {
   return (
     <motion.div
+      style={{ willChange: "transform, opacity" }}
       whileInView={{ opacity: 1, scale: 1 }}
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       transition={{
-        duration: 0.8,
-        delay: 0.3,
-        ease: [0, 0.71, 0.2, 1.01],
+        duration: 0.5,
+        delay: 0.2,
+        ease: [0.25, 0.1, 0.25, 1], // Use a simpler easing curve
       }}
       viewport={{ once: true }} // Prevents re-triggering when scrolling back
     >
