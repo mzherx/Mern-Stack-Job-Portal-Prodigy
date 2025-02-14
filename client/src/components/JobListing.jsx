@@ -192,14 +192,7 @@ const ting = () => {
               </li>
             ))}
           </ul>
-          {JobLocations.length > 5 && (
-            <button
-              className="text-primary hover:underline mt-2 text-sm"
-              onClick={() => setShowAllLocations(!showAllLocations)}
-            >
-              {showAllLocations ? "Show less" : "Show more..."}
-            </button>
-          )}
+          
         </div>
       </div>
 
