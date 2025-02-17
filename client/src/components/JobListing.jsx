@@ -32,7 +32,7 @@ const ting = () => {
           behavior: "smooth",
         });
       }
-    }, 300);
+    }, 100);
   };
 
   useEffect(() => {
