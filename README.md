@@ -76,7 +76,6 @@ A modern job portal application built with the MERN stack (MongoDB, Express, Rea
     * cd ../server
     * npm install
 
-
 3. **Environment Setup**
 
 Create .env files in both client/ and server/ directories:
@@ -127,3 +126,4 @@ Contributions are welcome! Please follow these steps:
 
 📄 License
 Distributed under the MIT License. See LICENSE for more information.
+
