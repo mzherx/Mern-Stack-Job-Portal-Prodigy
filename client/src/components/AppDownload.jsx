@@ -1,122 +1,156 @@
 import React from "react";
-import { assets } from "../assets/assets";
-import Bgimage from "../assets/image-gall.jpg";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import HeroImage from "../assets/image-gall.jpg"; // Replace with your high-quality image
+import { FiSearch, FiDollarSign, FiBarChart2, FiArrowRight } from "react-icons/fi";
 
 const AppDownload = () => {
   return (
-    <motion.div
-      style={{ willChange: "transform, opacity" }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      initial={{ opacity: 0, scale: 0.9 }}
-      transition={{
-        duration: 0.5,
-        delay: 0.2,
-        ease: [0.25, 0.1, 0.25, 1], // Use a simpler easing curve
-      }}
-      viewport={{ once: true }} // Prevents re-triggering when scrolling back
-    >
-      <section className="overflow-hidden bg-white py-8 sm:py-16">
-        <div className="mx-auto max-w-8xl px-6 lg:px-[100px] ">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-x-40">
-            <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
-                <h2 className="text-[16px] font-semibold leading-7 text-primary">
-                  Find faster
-                </h2>
-                <p className="mt-2 text-3xl font-bold tracking-tight text-[#252525] sm:text-5xl font-primary ">
-                  Millions of Jobs. Find the one that suits you.
-                </p>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Search all the open positions on the web. Get your own
-                  personalized salary estimate. Read reviews on over 600,000
-                  companies worldwide.
-                </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                      >
-                        <path d="M3.196 12.87l-.825.483a.75.75 0 000 1.294l7.25 4.25a.75.75 0 00.758 0l7.25-4.25a.75.75 0 000-1.294l-.825-.484-5.666 3.322a2.25 2.25 0 01-2.276 0L3.196 12.87z"></path>
-                        <path d="M3.196 8.87l-.825.483a.75.75 0 000 1.294l7.25 4.25a.75.75 0 00.758 0l7.25-4.25a.75.75 0 000-1.294l-.825-.484-5.666 3.322a2.25 2.25 0 01-2.276 0L3.196 8.87z"></path>
-                        <path d="M10.38 1.103a.75.75 0 00-.76 0l-7.25 4.25a.75.75 0 000 1.294l7.25 4.25a.75.75 0 00.76 0l7.25-4.25a.75.75 0 000-1.294l-7.25-4.25z"></path>
-                      </svg>
-                    </dt>
-                    <dd className="inline">Access Millions of Opportunities</dd>
-                  </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </dt>
-                    <dd className="inline">
-                      Get Your Personalized Salary Estimate
-                    </dd>
-                  </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M14.5 10a4.5 4.5 0 004.284-5.882c-.105-.324-.51-.391-.752-.15L15.34 6.66a.454.454 0 01-.493.11 3.01 3.01 0 01-1.618-1.616.455.455 0 01.11-.494l2.694-2.692c.24-.241.174-.647-.15-.752a4.5 4.5 0 00-5.873 4.575c.055.873-.128 1.808-.8 2.368l-7.23 6.024a2.724 2.724 0 103.837 3.837l6.024-7.23c.56-.672 1.495-.855 2.368-.8.096.007.193.01.291.01zM5 16a1 1 0 11-2 0 1 1 0 012 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </dt>
-                    <dd className="inline">
-                      Discover Company Insights & Reviews
-                    </dd>
-                  </div>
-                </dl>
+    <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <div className="absolute top-20 left-20 w-40 h-40 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl"></div>
+        <div className="absolute bottom-20 right-20 w-60 h-60 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          {/* Content */}
+          <div className="relative z-10">
+            <motion.span 
+              className="inline-block px-3 py-1 text-sm font-medium text-indigo-700 bg-indigo-100 rounded-full mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Find faster
+            </motion.span>
+            
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              Discover Your <span className="text-indigo-600">Dream Job</span> Today
+            </motion.h1>
+            
+            <motion.p
+              className="text-lg text-gray-600 mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Join millions of professionals and explore thousands of career opportunities. 
+              Get personalized matches, salary insights, and company reviews - all in one place.
+            </motion.p>
+            
+            {/* Features */}
+            <motion.div 
+              className="space-y-4 mb-10"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <div className="flex items-start">
+                <div className="flex-shrink-0 bg-indigo-100 p-2 rounded-lg text-indigo-600">
+                  <FiSearch className="w-5 h-5" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-gray-900">Smart Job Matching</h3>
+                  <p className="text-gray-600">AI-powered recommendations based on your skills and preferences</p>
+                </div>
               </div>
-              <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="/"
-                  className="rounded-md bg-primary   px-8 py-4 text-md font-primary font-semibold text-white shadow-sm hover:bg-slate-600 transition duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Find Jobs
-                </a>
-                <Link
-                  to="/recruiter-login"
-                  className="text-sm font-semibold leading-6 text-gray-700"
-                >
-                  Recruiter Dashboard
-                  <span aria-hidden="true">→</span>
-                </Link>
+              
+              <div className="flex items-start">
+                <div className="flex-shrink-0 bg-blue-100 p-2 rounded-lg text-blue-600">
+                  <FiDollarSign className="w-5 h-5" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-gray-900">Salary Insights</h3>
+                  <p className="text-gray-600">See personalized salary estimates for every position</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="flex-shrink-0 bg-purple-100 p-2 rounded-lg text-purple-600">
+                  <FiBarChart2 className="w-5 h-5" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-gray-900">Company Analytics</h3>
+                  <p className="text-gray-600">Detailed reviews and ratings for 600,000+ companies</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Link
+                to="/jobs"
+                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-center"
+              >
+                Browse Jobs
+              </Link>
+              
+              <Link
+                to="/recruiter-dashboard"
+                className="px-8 py-4 bg-white hover:bg-gray-50 text-indigo-600 font-medium rounded-lg shadow-sm border border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                Recruiter Dashboard
+                <FiArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          </div>
+          
+          {/* Image */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={HeroImage}
+                alt="Diverse professionals collaborating in modern office"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
+              
+              {/* Floating card element */}
+              <div className="absolute bottom-6 left-6 right-6 bg-white p-4 rounded-xl shadow-lg max-w-xs">
+                <div className="flex items-center mb-2">
+                  <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                    <FiSearch className="text-indigo-600 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">UX Designer</h4>
+                    <p className="text-sm text-gray-500">San Francisco, CA</p>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-indigo-600 font-medium">$95k - $120k</span>
+                  <button className="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">
+                    Apply now
+                  </button>
+                </div>
               </div>
             </div>
-            <img
-              src={Bgimage}
-              alt="Product screenshot"
-              className="h-full w-full rounded-xl shadow-xl ring-1 ring-gray-400/10 border-[#BEBEBE] object-cover lg:h-auto"
-            />
-          </div>
-        </div>
-      </section>
-    </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
