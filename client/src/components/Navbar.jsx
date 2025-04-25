@@ -1,66 +1,120 @@
-import React, { useContext } from "react";
-import { assets } from "../assets/assets";
+import React, { useContext, useEffect, useState } from "react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import logo from "../assets/newlogo.svg";
-import { motion } from "framer-motion";
+import { Zap, Briefcase } from "lucide-react";
 
 const Navbar = () => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
-
   const navigate = useNavigate();
-
   const { setShowRecruiterLogin } = useContext(AppContext);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.div
-      whileInView={{ opacity: 1, scale: 1 }}
-      initial={{ opacity: 0, scale: 0.5 }}
-      transition={{
-        duration: 0.8,
-        delay: 0.3,
-        ease: [0, 0.71, 0.2, 1.01],
-      }}
-      viewport={{ once: true }} // Prevents re-triggering when scrolling back
-    >
-      <div className="shadow py-4">
-        <div className="container px-5 2xl:px-20 mx-auto flex justify-between items-center">
-          <img
-            onClick={() => navigate("/")}
-            className="cursor-pointer"
-            alt={""}
-            src={logo}
-          />
-          {user ? (
-            <div className="flex items-center gap-3 font-primary text-[12px]">
-              <Link to="/applications">Applied Jobs</Link>
-              <p>|</p>
-              <p className="max-sm:hidden">
-                Hi, {user.firstName} {user.lastName || ""}
-              </p>
-              <UserButton />
+    <>
+      {/* Spacer div to prevent content jump when navbar becomes fixed */}
+      <div className="h-2"></div>
+      
+      <div className={`${scrolled ? "fixed animate-slideDown" : "relative"} top-0 left-0 right-0 z-10 w-full transition-all duration-300`}>
+        <nav className={`transition-all duration-500 ${
+          scrolled 
+            ? "mx-4 my-3 max-w-6xl md:mx-auto bg-white/95 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-100/50 py-4 px-6" 
+            : " mx-8 rounded-xl bg-white shadow-sm border-b border-gray-100 py-6 px-8"
+        } flex justify-between items-center`}>
+          {/* New Logo */}
+          <div 
+            onClick={() => navigate("/")} 
+            className="flex items-center gap-2 cursor-pointer group"
+          >
+            <div className={`bg-gradient-to-br from-blue-600 to-indigo-800 p-2 rounded-lg ${scrolled ? 'shadow-lg' : ''} group-hover:shadow-blue-500/30 transition-all duration-300`}>
+              <Zap size={24} className="text-white" />
             </div>
-          ) : (
-            <div className="flex gap-4 max:sm:text-xs">
-              <button
-                onClick={(e) => setShowRecruiterLogin(true)}
-                className="text-gray-600 text-[10px] sm:text-lg sm:pr-2 hover:text-primary transition duration-300 ease-in-out"
-              >
-                Recruiter Login
-              </button>
-              <button
-                onClick={(e) => openSignIn()}
-                className="bg-primary text-white px-8 sm:px-16 py-4 rounded-xl font-primary text-sm sm:text-2xl hover:bg-slate-600 transition duration-300 ease-in-out transform hover:-translate-y-[3px]"
-              >
-                Login
-              </button>
-            </div>
-          )}
-        </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Prodigy
+            </span>
+          </div>
+
+          {/* User section with premium styling */}
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <Link 
+                  to="/applications" 
+                  className="hidden md:flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-all duration-200 px-4 py-2 rounded-lg hover:bg-blue-50"
+                >
+                  <Briefcase size={18} />
+                  <span className="font-medium">My Jobs</span>
+                </Link>
+                <div className="flex items-center gap-3">
+                  <div className="hidden md:block">
+                    <span className="text-sm font-medium text-gray-600">
+                      Hi, {user.firstName}
+                    </span>
+                  </div>
+                  <UserButton 
+                    appearance={{
+                      elements: {
+                        userButtonAvatarBox: "h-10 w-10 border-2 border-blue-100 shadow-md",
+                        userButtonPopoverCard: "shadow-2xl rounded-xl border border-gray-100",
+                        userButtonTrigger: "focus:ring-2 focus:ring-blue-200"
+                      }
+                    }} 
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={(e) => setShowRecruiterLogin(true)}
+                  className="hidden md:block text-sm font-medium text-gray-600 hover:text-blue-600 transition-all duration-200 px-4 py-2 rounded-lg hover:bg-blue-50"
+                >
+                  Recruiter Portal
+                </button>
+                <button
+                  onClick={(e) => openSignIn()}
+                  className={`bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-6 py-2.5 rounded-xl font-medium text-sm ${scrolled ? 'shadow-lg hover:shadow-blue-500/30' : 'hover:shadow-md'} transition-all duration-300`}
+                >
+                  Get Started
+                </button>
+              </>
+            )}
+          </div>
+        </nav>
       </div>
-    </motion.div>
+
+      {/* Add this to your tailwind.config.js or CSS file */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        
+        .animate-slideDown {
+          animation: slideDown 0.4s ease-out forwards;
+        }
+      `}</style>
+    </>
   );
 };
 
