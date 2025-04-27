@@ -7,7 +7,7 @@ A modern job portal application built with the MERN stack (MongoDB, Express, Rea
 
 ## Screenshots
 
-[![Online-Jobs-2-1.png](https://i.postimg.cc/RZb2DvZg/Online-Jobs-2-1.png)](https://postimg.cc/bZk6Gcbn)
+![Startup Website Screenshot](./Prodigy.gif)
 
 
 ## ✨ Features
