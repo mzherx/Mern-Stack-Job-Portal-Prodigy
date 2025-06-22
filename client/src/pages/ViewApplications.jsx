@@ -129,7 +129,7 @@ const ViewApplications = () => {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">Application Management</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Application Management</h1>
           <p className="text-gray-500">Review and manage candidate applications</p>
         </motion.div>
 
