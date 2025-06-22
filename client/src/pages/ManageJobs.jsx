@@ -73,23 +73,32 @@ const ManageJobs = () => {
 
   return (
     <motion.div
-      whileInView={{ opacity: 1, scale: 1 }}
-      initial={{ opacity: 0, scale: 0.5 }}
-      transition={{
-        duration: 0.8,
-        delay: 0.2,
-        ease: [0, 0.71, 0.2, 1.01],
-      }}
-      viewport={{ once: true }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
     >
       <div className="container p-4 mx-auto">
         {/* Dashboard Header */}
+        <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-8"
+                >
         <div className="mb-6">
           <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Manage Jobs</h1>
           <p className="text-gray-600">View, update, and manage your job listings</p>
         </div>
+        </motion.div>
 
         {/* Stats Overview */}
+        <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+        >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-md p-5 border-l-4 border-primary">
             <p className="text-gray-500 text-sm mb-1">Total Jobs</p>
@@ -108,6 +117,7 @@ const ManageJobs = () => {
             </p>
           </div>
         </div>
+        </motion.div>
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mb-6">
           <div className="overflow-x-auto w-full">
@@ -189,7 +199,7 @@ const ManageJobs = () => {
           </button>
         </div>
       </div>
-    </motion.div>
+      </motion.div>
   );
 };
 
