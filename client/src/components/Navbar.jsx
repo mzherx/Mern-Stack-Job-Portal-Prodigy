@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* Spacer div to prevent content jump when navbar becomes fixed */}
       <div className="h-2"></div>
       
-      <div className={`${scrolled ? "fixed animate-slideDown" : "relative"} top-0 left-0 right-0 z-10 w-full transition-all duration-300`}>
+      <div className={`${scrolled ? "fixed animate-slideDown" : "relative"} top-0 left-0 right-0 z-20 w-full transition-all duration-300`}>
         <nav className={`transition-all duration-500 ${
           scrolled 
             ? "mx-4 my-3 max-w-6xl md:mx-auto bg-white/95 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-100/50 py-4 px-6" 
