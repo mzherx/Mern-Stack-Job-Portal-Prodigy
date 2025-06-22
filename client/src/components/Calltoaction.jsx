@@ -13,7 +13,7 @@ const CallToAction = () => {
           alt="Professional team collaborating"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-blue-800/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-indigo-900/70"></div>
       </div>
 
       {/* Content container */}
@@ -62,22 +62,24 @@ const CallToAction = () => {
               className="flex flex-col justify-center gap-4 mt-10 sm:flex-row sm:gap-6"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center px-8 py-4 text-base font-medium text-white transition-all duration-300 bg-indigo-600 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-lg hover:shadow-xl"
-              >
-                <FiSearch className="w-5 h-5 mr-2" />
-                Search Jobs
-              </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="flex items-center justify-center px-8 py-4 text-base font-medium text-white transition-all duration-300 bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-lg hover:shadow-xl"
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+>
+  <FiSearch className="w-5 h-5 mr-2" />
+  Search Jobs
+</motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center px-8 py-4 text-base font-medium text-white transition-all duration-300 bg-transparent border-2 border-white rounded-xl hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-              >
-                <FiStar className="w-5 h-5 mr-2" />
-                Explore Features
-              </motion.button>
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="flex items-center justify-center px-8 py-4 text-base font-medium text-white transition-all duration-300 bg-transparent border-2 border-white rounded-xl hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+  onClick={() => window.location.href = '/'}
+>
+  <FiStar className="w-5 h-5 mr-2" />
+  Explore Features
+</motion.button>
             </motion.div>
 
             {/* Trust indicators */}
